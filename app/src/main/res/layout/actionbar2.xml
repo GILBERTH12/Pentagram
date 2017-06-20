@@ -13,16 +13,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:background="@android:color/transparent"
-            android:src="@drawable/icons8_hotel_48"
-            android:id="@+id/btnFavoritos"
-            android:onClick="agregarBtnFavoritos"
-            />
-
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>
