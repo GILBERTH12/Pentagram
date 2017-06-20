@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pentagram</string>
+    <string name="nombre">Catty</string>
+    <string name="raiting">5</string>
 </resources>
