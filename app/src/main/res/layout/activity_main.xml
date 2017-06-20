@@ -6,15 +6,26 @@
     android:layout_height="match_parent"
     tools:context="com.gilbertlinero.pentagram.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvMascotas"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:padding="@dimen/activity_vertical_margin"
-        >
+        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <include android:id="@+id/miActionBar"
+            layout="@layout/actionbar">
+        </include>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvMascotas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/activity_vertical_margin"
+            android:layout_below="@id/miActionBar"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
