@@ -6,26 +6,37 @@
     android:layout_height="match_parent"
     tools:context="com.gilbertlinero.pentagram.MainActivity">
 
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">-->
 
         <include android:id="@+id/miActionBar"
             layout="@layout/actionbar">
         </include>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvMascotas"
+
+    <!-- </RelativeLayout> -->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:padding="@dimen/activity_vertical_margin"
-            android:layout_below="@id/miActionBar"
+            android:layout_height="wrap_content"
             >
+        </android.support.design.widget.TabLayout>
 
-        </android.support.v7.widget.RecyclerView>
+    </android.support.design.widget.AppBarLayout>
 
-    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+    </android.support.v4.view.ViewPager>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

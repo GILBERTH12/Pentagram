@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
+
+import com.gilbertlinero.pentagram.adapter.MascotaAdaptador;
+import com.gilbertlinero.pentagram.pojo.Mascota;
 
 import java.util.ArrayList;
 
@@ -27,6 +31,9 @@ public class MascotasFavoritas extends AppCompatActivity {
 
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
+
+        TextView mTitle = (TextView) miActionBar.findViewById(R.id.toolbar_title);
+        mTitle.setText(getResources().getString(R.string.favoritos));
 
         rvMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
 

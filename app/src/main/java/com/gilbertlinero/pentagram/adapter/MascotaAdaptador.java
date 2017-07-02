@@ -1,4 +1,4 @@
-package com.gilbertlinero.pentagram;
+package com.gilbertlinero.pentagram.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gilbertlinero.pentagram.pojo.Mascota;
+import com.gilbertlinero.pentagram.R;
 
 import java.util.ArrayList;
 

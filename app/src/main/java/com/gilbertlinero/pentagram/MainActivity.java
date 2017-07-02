@@ -3,20 +3,30 @@ package com.gilbertlinero.pentagram;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+
+import com.gilbertlinero.pentagram.adapter.MascotaAdaptador;
+import com.gilbertlinero.pentagram.adapter.PageAdapter;
+import com.gilbertlinero.pentagram.fragment.PerfilFragment;
+import com.gilbertlinero.pentagram.fragment.RecyclerViewFragment;
+import com.gilbertlinero.pentagram.pojo.Mascota;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Mascota> mascotas;
-    private RecyclerView rvMascotas;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,35 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         agregarFAB();
 
-        rvMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        rvMascotas.setLayoutManager(llm);
-
-        inicializarListaMascotas();
-        inicializarAdaptador();
+        setUpViewPager();
     }
 
-    public MascotaAdaptador adaptador;
-    public void inicializarAdaptador() {
-        adaptador = new MascotaAdaptador(mascotas,this);
-        rvMascotas.setAdapter(adaptador);
-    }
-
-    public void inicializarListaMascotas() {
-
-        mascotas = new ArrayList<Mascota>();
-
-        mascotas.add(new Mascota(R.drawable.l150612172633_mascotas2, "Catty", 5));
-        mascotas.add(new Mascota(R.drawable.f56ap56eb56aj56ef56e_680x381, "Ronny", 3));
-        mascotas.add(new Mascota(R.drawable.las_10_mascotas_m_s_deseadas_por_los_seres_humanos_5_390x250, "Doc", 0));
-        mascotas.add(new Mascota(R.drawable.mascotas, "Lazy", 2));
-        mascotas.add(new Mascota(R.drawable.perrito_hermoso_salundando_255, "San", 4));
-        mascotas.add(new Mascota(R.drawable.slide_2, "Bonny", 1));
-        mascotas.add(new Mascota(R.drawable.limpieza_de_casas_con_mascotas_4, "Conny", 1));
-    }
 
     public void agregarFAB(){
         FloatingActionButton fabCamara = (FloatingActionButton) findViewById(R.id.fabCamara);
@@ -72,5 +59,44 @@ public class MainActivity extends AppCompatActivity {
     public void agregarBtnFavoritos(View view){
         Intent intent = new Intent(this, MascotasFavoritas.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.mContacto:
+                /*Toast.makeText(this, "Contacto", Toast.LENGTH_SHORT).show();*/
+                Intent intent = new Intent(this, ContactoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.mAcerca:
+                /*Toast.makeText(this, "Acerca", Toast.LENGTH_SHORT).show();*/
+                Intent intent2 = new Intent(this, AcercaActivity.class);
+                startActivity(intent2);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PerfilFragment());
+
+        return fragments;
+    }
+
+    private  void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));;
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.tiger);
     }
 }
