@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gilbertlinero.pentagram.db.ConstructorMascotas;
 import com.gilbertlinero.pentagram.pojo.Mascota;
 import com.gilbertlinero.pentagram.R;
 
@@ -45,9 +46,13 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.btnRaitear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mascota.setRaitear();
+                //mascota.setRaitear();
                 Toast.makeText(activity, "Raiteaste a " + mascota.getNombre(), Toast.LENGTH_LONG).show();
-                mascotaViewHolder.tvRaitingCV.setText(String.valueOf(mascota.getRaiting()));
+
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.darRaitingMascota(mascota);
+
+                mascotaViewHolder.tvRaitingCV.setText(String.valueOf(constructorMascotas.obtenerRaitingMascota(mascota)));
             }
         });
     }

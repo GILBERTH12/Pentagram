@@ -1,4 +1,4 @@
-package com.gilbertlinero.pentagram.fragment;
+package com.gilbertlinero.pentagram.vista.fragment;
 
 
 import android.os.Bundle;
@@ -31,7 +31,7 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this vista.fragment
         //return inflater.inflate(R.layout.fragment_perfil, container, false);
 
         View v = inflater.inflate(R.layout.fragment_perfil, container, false);

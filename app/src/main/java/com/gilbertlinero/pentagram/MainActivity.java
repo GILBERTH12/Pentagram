@@ -8,18 +8,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.gilbertlinero.pentagram.adapter.MascotaAdaptador;
 import com.gilbertlinero.pentagram.adapter.PageAdapter;
-import com.gilbertlinero.pentagram.fragment.PerfilFragment;
-import com.gilbertlinero.pentagram.fragment.RecyclerViewFragment;
-import com.gilbertlinero.pentagram.pojo.Mascota;
+import com.gilbertlinero.pentagram.vista.fragment.PerfilFragment;
+import com.gilbertlinero.pentagram.vista.fragment.RecyclerViewFragment;
 
 import java.util.ArrayList;
 

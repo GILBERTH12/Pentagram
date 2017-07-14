@@ -6,6 +6,7 @@ package com.gilbertlinero.pentagram.pojo;
 
 public class Mascota {
 
+    private int id;
     private String nombre;
     private int foto;
     private int raiting;
@@ -14,6 +15,10 @@ public class Mascota {
         this.nombre = nombre;
         this.foto = foto;
         this.raiting = raiting;
+    }
+
+    public Mascota() {
+
     }
 
     public int getFoto() {
@@ -42,5 +47,13 @@ public class Mascota {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
